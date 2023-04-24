@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PlayerView: View {
+    @State private var value : Double = 0.0
     var body: some View {
         ZStack {
             Image("image-stones")
@@ -35,6 +36,21 @@ struct PlayerView: View {
                     .foregroundColor(.white)
                 
                 Spacer()
+                
+                VStack(spacing: 5) {
+                    //MARK: - playback timeline
+                    Slider(value: $value, in: 0...60)
+                        .tint(Color.white)
+                    
+                    //MARK: - playback time
+                    HStack {
+                        Text("0:00")
+                        Spacer()
+                        Text("1:00")
+                    }
+                    .font(.caption)
+                    .foregroundColor(.white)
+                }
 
 
             }
