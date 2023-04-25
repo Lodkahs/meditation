@@ -38,6 +38,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4967E1A529F6E9B600EC830E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4967E1A329F6E8AB00EC830E /* PlaybackControlButton.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4967E1A629F6E9BB00EC830E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				491BC0FC29F5420000E5F02F /* MeditationView.swift */,
+				490CEE3429F5756500C365E2 /* PlayerView.swift */,
+				4984449429F45123001667F9 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4967E1A729F6E9C000EC830E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4984448629F45123001667F9 = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +83,11 @@
 			isa = PBXGroup;
 			children = (
 				4984449229F45123001667F9 /* MeditationLApp.swift */,
-				4984449429F45123001667F9 /* ContentView.swift */,
+				4967E1A529F6E9B600EC830E /* Model */,
+				4967E1A629F6E9BB00EC830E /* View */,
+				4967E1A729F6E9C000EC830E /* ViewModel */,
 				4984449629F45124001667F9 /* Assets.xcassets */,
 				4984449829F45124001667F9 /* Preview Content */,
-				491BC0FC29F5420000E5F02F /* MeditationView.swift */,
-				490CEE3429F5756500C365E2 /* PlayerView.swift */,
-				4967E1A329F6E8AB00EC830E /* PlaybackControlButton.swift */,
 			);
 			path = MeditationL;
 			sourceTree = "<group>";
