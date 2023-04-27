@@ -16,6 +16,7 @@
 		4984449529F45123001667F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984449429F45123001667F9 /* ContentView.swift */; };
 		4984449729F45124001667F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4984449629F45124001667F9 /* Assets.xcassets */; };
 		4984449A29F45124001667F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4984449929F45124001667F9 /* Preview Assets.xcassets */; };
+		49DA8FB629FAE154004F2B8C /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA8FB529FAE154004F2B8C /* AudioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4984449429F45123001667F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4984449629F45124001667F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4984449929F45124001667F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49DA8FB529FAE154004F2B8C /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				496F0B1929F84C7100DCCB9D /* MeditationViewModel.swift */,
+				49DA8FB529FAE154004F2B8C /* AudioManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				4984449529F45123001667F9 /* ContentView.swift in Sources */,
 				491BC0FD29F5420000E5F02F /* MeditationView.swift in Sources */,
+				49DA8FB629FAE154004F2B8C /* AudioManager.swift in Sources */,
 				4967E1A429F6E8AB00EC830E /* PlaybackControlButton.swift in Sources */,
 				4984449329F45123001667F9 /* MeditationLApp.swift in Sources */,
 				496F0B1A29F84C7100DCCB9D /* MeditationViewModel.swift in Sources */,
