@@ -13,6 +13,11 @@ struct PlayerView: View {
     var isPreview : Bool = false
     @State private var value : Double = 0.0
     @Environment(\.dismiss) var dismiss
+    
+    let timer = Timer
+        .publish(every: 0.5, on: .main, in: .common)
+        .autoconnect()
+    
     var body: some View {
         ZStack {
             Image(meditationVM.meditation.image)
@@ -106,6 +111,12 @@ struct PlayerView: View {
 //            AudioManager.shared.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
             audioManager.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
         }
+        .onReceive(timer) { _ in
+            guard let player = audioManager.player else {
+                return
+            }
+            value player.currentTime
+        }
     }
 }
 
@@ -113,5 +124,6 @@ struct PlayerView_Previews: PreviewProvider {
     static let meditationVM = MeditationViewModel(meditation: Meditation.data)
     static var previews: some View {
         PlayerView(meditationVM: meditationVM, isPreview: true)
+            .environmentObject(AudioManager())
     }
 }
