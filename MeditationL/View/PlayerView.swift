@@ -89,7 +89,7 @@ struct PlayerView: View {
                         
                         //MARK: - backward button
                         PlaybackControlButton(systemName: "gobackward.10") {
-                            
+                            player.currentTime -= 10
                         }
                         
                         Spacer()
@@ -103,7 +103,7 @@ struct PlayerView: View {
                         
                         //MARK: - forward button
                         PlaybackControlButton(systemName: "goforward.10") {
-                            
+                            player.currentTime += 10
                         }
                         
                         Spacer()
