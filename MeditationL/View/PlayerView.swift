@@ -58,8 +58,7 @@ struct PlayerView: View {
                     
                     VStack(spacing: 5) {
                         //MARK: - playback timeline
-                        Slider(value: $value, in: 0...player.duration) {
-                            editing in
+                        Slider(value: $value, in: 0...player.duration) { editing in
                             isEditing = editing
                             
                             if !editing {
@@ -95,8 +94,8 @@ struct PlayerView: View {
                         Spacer()
                         
                         //MARK: - play/pause button
-                        PlaybackControlButton(systemName: "play.circle.fill", fontSize: 44) {
-                            
+                        PlaybackControlButton(systemName: player.isPlaying ? "pause.circle.fill" : "play.circle.fill", fontSize: 44) {
+                            audioManager.playPause()
                         }
                         
                         Spacer()
@@ -119,7 +118,6 @@ struct PlayerView: View {
             .padding(20)
         }
         .onAppear {
-            //            AudioManager.shared.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
             audioManager.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
         }
         .onReceive(timer) { _ in

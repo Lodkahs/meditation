@@ -10,8 +10,7 @@ import AVKit
 
 final class AudioManager: ObservableObject {
     //static let shared = AudioManager()
-    
-    var player : AVAudioPlayer?
+    @Published var player : AVAudioPlayer?
     
     func startPlayer(track: String, isPreview: Bool = false) {
         guard let url = Bundle.main.url(forResource: track, withExtension: "mp3") else {
@@ -32,6 +31,20 @@ final class AudioManager: ObservableObject {
             
         } catch {
             print("Fail to initialiez player", error)
+        }
+
+    }
+    
+    func playPause() {
+        guard let player = player else {
+            print("No active player")
+            return
+        }
+        
+        if player.isPlaying {
+            player.pause()
+        } else {
+            player.play()
         }
         
     }
