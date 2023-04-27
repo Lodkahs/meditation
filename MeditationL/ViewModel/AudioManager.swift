@@ -19,6 +19,8 @@ final class AudioManager {
         }
         
         do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
             player = try AVAudioPlayer(contentsOf: url)
             
             player?.play()
