@@ -31,7 +31,7 @@ struct PlayerView: View {
                 .background(.thinMaterial)
                 .opacity(0.25)
                 .ignoresSafeArea()
-
+            
             
             VStack(spacing: 32) {
                 //MARK: - dissmiss buttom
@@ -53,69 +53,72 @@ struct PlayerView: View {
                 
                 Spacer()
                 
-                VStack(spacing: 5) {
-                    //MARK: - playback timeline
-                    Slider(value: $value, in: 0...60)
-                        .tint(Color.white)
+                if let player = audioManager.player {
                     
-                    //MARK: - playback time
-                    HStack {
-                        Text("0:00")
-                        Spacer()
-                        Text("1:00")
+                    VStack(spacing: 5) {
+                        //MARK: - playback timeline
+                        Slider(value: $value, in: 0...player.duration)
+                            .tint(Color.white)
+                        
+                        //MARK: - playback time
+                        HStack {
+                            Text()
+                            Spacer()
+                            Text("1:00")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.white)
                     }
-                    .font(.caption)
-                    .foregroundColor(.white)
+                    
+                    //MARK: - playback control
+                    HStack {
+                        //MARK: - repeat button
+                        PlaybackControlButton(systemName: "repeat") {
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        //MARK: - backward button
+                        PlaybackControlButton(systemName: "gobackward.10") {
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        //MARK: - play/pause button
+                        PlaybackControlButton(systemName: "play.circle.fill", fontSize: 44) {
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        //MARK: - forward button
+                        PlaybackControlButton(systemName: "goforward.10") {
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        //MARK: - stop button
+                        PlaybackControlButton(systemName: "stop.fill") {
+                            
+                        }
+                    }
                 }
                 
-                //MARK: - playback control
-                HStack {
-                    //MARK: - repeat button
-                    PlaybackControlButton(systemName: "repeat") {
-                        
-                    }
-                    
-                    Spacer()
-                    
-                    //MARK: - backward button
-                    PlaybackControlButton(systemName: "gobackward.10") {
-                        
-                    }
-                    
-                    Spacer()
-                    
-                    //MARK: - play/pause button
-                    PlaybackControlButton(systemName: "play.circle.fill", fontSize: 44) {
-                        
-                    }
-                    
-                    Spacer()
-                    
-                    //MARK: - forward button
-                    PlaybackControlButton(systemName: "goforward.10") {
-                        
-                    }
-                    
-                    Spacer()
-                    
-                    //MARK: - stop button
-                    PlaybackControlButton(systemName: "stop.fill") {
-                        
-                    }
-                }
-
             }
             .padding(20)
         }
         .onAppear {
-//            AudioManager.shared.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
+            //            AudioManager.shared.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
             audioManager.startPlayer(track: meditationVM.meditation.track, isPreview: isPreview)
         }
         .onReceive(timer) { _ in
             guard let player = audioManager.player else {
                 return
             }
-            value player.currentTime
+            value = player.currentTime
         }
     }
 }
