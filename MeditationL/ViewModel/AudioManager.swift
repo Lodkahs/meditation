@@ -13,10 +13,12 @@ final class AudioManager: ObservableObject {
     @Published var player : AVAudioPlayer?
     
     @Published private(set) var isPlaying: Bool = false {
-            didSet {
-                print("isPlaying", isPlaying)
-            }
+        didSet {
+            print("isPlaying", isPlaying)
+        }
     }
+    
+    @Published private(set) var isLooping : Bool = false
     
     func startPlayer(track: String, isPreview: Bool = false) {
         guard let url = Bundle.main.url(forResource: track, withExtension: "mp3") else {
@@ -39,7 +41,7 @@ final class AudioManager: ObservableObject {
         } catch {
             print("Fail to initialiez player", error)
         }
-
+        
     }
     
     func playPause() {
@@ -65,5 +67,12 @@ final class AudioManager: ObservableObject {
             player.stop()
             isPlaying = false
         }
+    }
+    
+    func toggleLoop() {
+        guard let player = player else {return}
+        
+        player.numberOfLoops = player.numberOfLoops == 0 ? -1 : 0
+        isLooping = player.numberOfLoops != 0
     }
 }

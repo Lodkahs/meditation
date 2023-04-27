@@ -81,8 +81,9 @@ struct PlayerView: View {
                     //MARK: - playback control
                     HStack {
                         //MARK: - repeat button
-                        PlaybackControlButton(systemName: "repeat") {
-                            
+                        let color: Color = audioManager.isLooping ? .teal : .white
+                        PlaybackControlButton(systemName: "repeat", color: color) {
+                            audioManager.toggleLoop()
                         }
                         
                         Spacer()
